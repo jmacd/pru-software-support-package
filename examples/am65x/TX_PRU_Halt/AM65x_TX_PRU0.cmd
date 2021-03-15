@@ -4,7 +4,7 @@
  * Example Linker command file for linking programs built with the C compiler
  * on AM65x SR2.0 TX_PRU0 cores
  *
- * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (C) 2020-2021 Texas Instruments Incorporated - https://www.ti.com/
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -128,5 +128,7 @@ SECTIONS {
 	.farbss		>  TX_PRU0_DMEM_0, PAGE 1
 	.fardata	>  TX_PRU0_DMEM_0, PAGE 1
 
-	.resource_table >  TX_PRU0_DMEM_0, PAGE 1
+	/* Ensure resource_table section is aligned on 8-byte address for
+	   ARMv8 (64-bit) kernel */
+	.resource_table : ALIGN (8) >  TX_PRU0_DMEM_0, PAGE 1
 }
