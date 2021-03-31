@@ -47,7 +47,7 @@ ifeq ($(ICSSG), 1)
 	PORT_NUM = 35
 endif
 
-# Instance specific defines to be passed to program
+#DCFLAGS pass instance specific defines to the program (see --define in 'PRU Optimizing C/C++ Compiler User's Guide')
 DCFLAGS=-DCHAN_PORT=$(PORT_NUM)
 
 TARGET=$(GEN_DIR)/$(TARG_NAME).out

@@ -40,6 +40,8 @@ CFLAGS=-v3 -O2 --display_error_number --endian=little --hardware_mac=on --obj_di
 #Linker flags (Defined in 'PRU Optimizing C/C++ Compiler User's Guide)
 LFLAGS=--reread_libs --warn_sections --stack_size=$(STACK_SIZE) --heap_size=$(HEAP_SIZE)
 
+#DCFLAGS pass instance specific defines to the program (see --define in 'PRU Optimizing C/C++ Compiler User's Guide')
+
 TARGET=$(GEN_DIR)/$(PROJ_NAME)_$(SLICE).out
 MAP=$(GEN_DIR)/$(PROJ_NAME)_$(SLICE).map
 SOURCES=$(wildcard *.c)
