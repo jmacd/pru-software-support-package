@@ -10,6 +10,16 @@ https://git.ti.com/cgit/pru-software-support-package/pru-software-support-packag
 Release Notes for each tag are below.
 
 
+v5.9.0
+------
+Released 2021-09-07
+
+This is the last PSSP release that supports the Linux kernel 5.4 version of the
+RemoteProc driver.
+
+Add Release_Notes.txt
+
+
 v5.8.0
 ------
 Released 2021-03-31
