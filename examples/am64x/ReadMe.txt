@@ -29,6 +29,23 @@ WHAT EXAMPLES ARE INCLUDED?
 
 	EXAMPLE
 	---------
+	PRU_Halt
+	RTU_Halt
+	TX_PRU_Halt
+		Halt examples are a basic empty ICSS/ICSSG projects
+
+	PRU_Direct_Connect0
+	PRU_Direct_Connect1
+		Direct_Connect examples demonstrate how to:
+		 * Pass INTC configuration to Linux RemoteProc driver
+		 * Pass interrupts and data between PRU cores
+
+	PRU_MAC_Multiply_Accum
+	RTU_MAC_Multiply_Accum
+		MAC_Multiply_Accum examples demonstrate how to:
+		 * Adjust Data RAM size
+		 * Use the multiply with accumulate (MAC) module
+
 	PRU_RPMsg_Echo_Interrupt0
 	PRU_RPMsg_Echo_Interrupt1
 	RTU_RPMsg_Echo_Interrupt0
