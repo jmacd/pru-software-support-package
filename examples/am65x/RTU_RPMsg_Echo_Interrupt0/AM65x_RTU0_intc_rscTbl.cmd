@@ -131,4 +131,9 @@ SECTIONS {
 	/* Ensure resource_table section is aligned on 8-byte address for
 	   ARMv8 (64-bit) kernel */
 	.resource_table : ALIGN (8) >  RTU0_DMEM_0, PAGE 1
+
+	.pru_irq_map (COPY) :
+	{
+		*(.pru_irq_map)
+	}
 }

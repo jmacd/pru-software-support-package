@@ -1,10 +1,10 @@
 /*
- * AM65x_TX_PRU1.cmd
+ * AM65x_RTU1.cmd
  *
  * Example Linker command file for linking programs built with the C compiler
- * on AM65x SR2.0 TX_PRU1 cores
+ * on AM65x RTU1 cores
  *
- * Copyright (C) 2020-2021 Texas Instruments Incorporated - https://www.ti.com/
+ * Copyright (C) 2017-2021 Texas Instruments Incorporated - https://www.ti.com/
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -41,8 +41,8 @@
 MEMORY
 {
       PAGE 0:
-	/* 6 KB Tx_PRU Instruction RAM */
-	TX_PRU_IMEM	: org = 0x00000000 len = 0x00001800
+	/* 8 KB RTU Instruction RAM */
+	RTU_IMEM	: org = 0x00000000 len = 0x00002000
 
       PAGE 1:
 	/* Data RAMs */
@@ -53,12 +53,13 @@ MEMORY
 	 * RTU0 and Tx_PRU0; do not use for any Slice1 cores */
 	PRU1_DMEM_0	: org = 0x00002000 len = 0x00001000	CREGISTER=25
 	/* NOTE: Custom split of the second 4 KB of ICSS Data RAMs 0 and 1
-	 * split equally between the corresponding RTU and Tx_PRU cores in
+	 * This RTU example uses a large amount of memory. Split assymetrically
+	 * between the corresponding RTU (3 KB) and Tx_PRU (1 KB) cores in
 	 * each slice */
-	RTU1_DMEM_1	: org = 0x00001000 len = 0x00000800
-	TX_PRU1_DMEM_1	: org = 0x00001800 len = 0x00000800
-	RTU1_DMEM_0	: org = 0x00003000 len = 0x00000800
-	TX_PRU1_DMEM_0	: org = 0x00003800 len = 0x00000800
+	RTU1_DMEM_1	: org = 0x00001000 len = 0x00000c00
+	TX_PRU1_DMEM_1	: org = 0x00001c00 len = 0x00000400
+	RTU1_DMEM_0	: org = 0x00003000 len = 0x00000c00
+	TX_PRU1_DMEM_0	: org = 0x00003c00 len = 0x00000400
 
       PAGE 2:
 	/* C28 needs to be programmed to point to SHAREDMEM, default is 0 */
@@ -83,9 +84,8 @@ MEMORY
 	PRU_UART	: org = 0x00028000 len = 0x00000038	CREGISTER=7
 	PRU_IEP0_0x100	: org = 0x0002E100 len = 0x0000021C	CREGISTER=8
 	MII_G_RT	: org = 0x00033000 len = 0x00000C18	CREGISTER=9
-	/* FIXME: TX_PRU Task Manager exists, but not documented in TRM revE */
-	TM_CFG_PRU1	: org = 0x0002A200 len = 0x0000004C	CREGISTER=10
-	TX_PRU1_CTRL	: org = 0x00025800 len = 0x00000088	CREGISTER=11
+	TM_CFG_RTU1	: org = 0x0002A300 len = 0x0000004C	CREGISTER=10
+	RTU1_CTRL	: org = 0x00023800 len = 0x00000088	CREGISTER=11
 	/* FIXME: PA_STATS_QRAM and CRAM assigned random sizes of 0x100 */
 	PA_STATS_QRAM	: org = 0x00027000 len = 0x00000100	CREGISTER=12
 	PA_STATS_CRAM	: org = 0x0002C000 len = 0x00000100	CREGISTER=13
@@ -112,20 +112,20 @@ MEMORY
 
 /* Specify the sections allocation into memory */
 SECTIONS {
-	/* Forces _c_int00 to the start of Tx_PRU IRAM. Not necessary when loading
+	/* Forces _c_int00 to the start of RTU IRAM. Not necessary when loading
 	   an ELF file, but useful when loading a binary */
 	.text:_c_int00*	>  0x0, PAGE 0
 
-	.text		>  TX_PRU_IMEM, PAGE 0
-	.stack		>  TX_PRU1_DMEM_1, PAGE 1
-	.bss		>  TX_PRU1_DMEM_1, PAGE 1
-	.cio		>  TX_PRU1_DMEM_1, PAGE 1
-	.data		>  TX_PRU1_DMEM_1, PAGE 1
-	.switch		>  TX_PRU1_DMEM_1, PAGE 1
-	.sysmem		>  TX_PRU1_DMEM_1, PAGE 1
-	.cinit		>  TX_PRU1_DMEM_1, PAGE 1
-	.rodata		>  TX_PRU1_DMEM_1, PAGE 1
-	.rofardata	>  TX_PRU1_DMEM_1, PAGE 1
-	.farbss		>  TX_PRU1_DMEM_1, PAGE 1
-	.fardata	>  TX_PRU1_DMEM_1, PAGE 1
+	.text		>  RTU_IMEM, PAGE 0
+	.stack		>  RTU1_DMEM_1, PAGE 1
+	.bss		>  RTU1_DMEM_1, PAGE 1
+	.cio		>  RTU1_DMEM_1, PAGE 1
+	.data		>  RTU1_DMEM_1, PAGE 1
+	.switch		>  RTU1_DMEM_1, PAGE 1
+	.sysmem		>  RTU1_DMEM_1, PAGE 1
+	.cinit		>  RTU1_DMEM_1, PAGE 1
+	.rodata		>  RTU1_DMEM_1, PAGE 1
+	.rofardata	>  RTU1_DMEM_1, PAGE 1
+	.farbss		>  RTU1_DMEM_1, PAGE 1
+	.fardata	>  RTU1_DMEM_1, PAGE 1
 }

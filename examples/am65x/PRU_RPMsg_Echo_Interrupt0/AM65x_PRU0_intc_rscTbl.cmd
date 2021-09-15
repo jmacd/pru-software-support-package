@@ -1,8 +1,8 @@
 /*
- * AM65x_RTU1.cmd
+ * AM65x_PRU0.cmd
  *
  * Example Linker command file for linking programs built with the C compiler
- * on AM65x RTU1 cores
+ * on AM65x PRU0 cores
  *
  * Copyright (C) 2017-2021 Texas Instruments Incorporated - https://www.ti.com/
  *
@@ -41,24 +41,24 @@
 MEMORY
 {
       PAGE 0:
-	/* 8 KB RTU Instruction RAM */
-	RTU_IMEM	: org = 0x00000000 len = 0x00002000
+	/* 16 KB PRU Instruction RAM */
+	PRU_IMEM	: org = 0x00000000 len = 0x00004000
 
       PAGE 1:
 	/* Data RAMs */
-	/* 8 KB PRU Data RAM 1; use only the first 4 KB for PRU1 and reserve
-	 * the second 4 KB for RTU1 and Tx_PRU1 */
-	PRU1_DMEM_1	: org = 0x00000000 len = 0x00001000	CREGISTER=24
-	/* 8 KB PRU Data RAM 0; reserved completely for Slice0 cores - PRU0,
-	 * RTU0 and Tx_PRU0; do not use for any Slice1 cores */
-	PRU1_DMEM_0	: org = 0x00002000 len = 0x00001000	CREGISTER=25
+	/* 8 KB PRU Data RAM 0; use only the first 4 KB for PRU0 and reserve
+	 * the second 4 KB for RTU0 and Tx_PRU0 */
+	PRU0_DMEM_0	: org = 0x00000000 len = 0x00001000	CREGISTER=24
+	/* 8 KB PRU Data RAM 1; reserved completely for Slice1 cores - PRU1,
+	 * RTU1 and Tx_PRU1; do not use for any Slice0 cores */
+	PRU0_DMEM_1	: org = 0x00002000 len = 0x00001000	CREGISTER=25
 	/* NOTE: Custom split of the second 4 KB of ICSS Data RAMs 0 and 1
-	 * split assymetrically between the corresponding RTU (3 KB) and
-	 * Tx_PRU (1 KB) cores in each slice */
-	RTU1_DMEM_1	: org = 0x00001000 len = 0x00000c00
-	TX_PRU1_DMEM_1	: org = 0x00001c00 len = 0x00000400
-	RTU1_DMEM_0	: org = 0x00003000 len = 0x00000c00
-	TX_PRU1_DMEM_0	: org = 0x00003c00 len = 0x00000400
+	 * split equally between the corresponding RTU and Tx_PRU cores in
+	 * each slice */
+	RTU0_DMEM_0	: org = 0x00001000 len = 0x00000800
+	TX_PRU0_DMEM_0	: org = 0x00001800 len = 0x00000800
+	RTU0_DMEM_1	: org = 0x00003000 len = 0x00000800
+	TX_PRU0_DMEM_1	: org = 0x00003800 len = 0x00000800
 
       PAGE 2:
 	/* C28 needs to be programmed to point to SHAREDMEM, default is 0 */
@@ -83,14 +83,14 @@ MEMORY
 	PRU_UART	: org = 0x00028000 len = 0x00000038	CREGISTER=7
 	PRU_IEP0_0x100	: org = 0x0002E100 len = 0x0000021C	CREGISTER=8
 	MII_G_RT	: org = 0x00033000 len = 0x00000C18	CREGISTER=9
-	TM_CFG_RTU1	: org = 0x0002A300 len = 0x0000004C	CREGISTER=10
-	RTU1_CTRL	: org = 0x00023800 len = 0x00000088	CREGISTER=11
+	TM_CFG_PRU0	: org = 0x0002A000 len = 0x0000004C	CREGISTER=10
+	PRU0_CTRL	: org = 0x00022000 len = 0x00000088	CREGISTER=11
 	/* FIXME: PA_STATS_QRAM and CRAM assigned random sizes of 0x100 */
 	PA_STATS_QRAM	: org = 0x00027000 len = 0x00000100	CREGISTER=12
 	PA_STATS_CRAM	: org = 0x0002C000 len = 0x00000100	CREGISTER=13
 	ICSSG_PROTECT	: org = 0x00024800 len = 0x000001E8	CREGISTER=14
 	MII_MDIO	: org = 0x00032400 len = 0x00000090	CREGISTER=21
-	PRU_RTU_RAT1	: org = 0x00009000 len = 0x00000854	CREGISTER=22
+	PRU_RTU_RAT0	: org = 0x00008000 len = 0x00000854	CREGISTER=22
 	PRU_IEP0	: org = 0x0002E000 len = 0x00000100	CREGISTER=26
 	MII_RT		: org = 0x00032000 len = 0x0000024C	CREGISTER=27
 
@@ -111,24 +111,29 @@ MEMORY
 
 /* Specify the sections allocation into memory */
 SECTIONS {
-	/* Forces _c_int00 to the start of RTU IRAM. Not necessary when loading
+	/* Forces _c_int00 to the start of PRU IRAM. Not necessary when loading
 	   an ELF file, but useful when loading a binary */
 	.text:_c_int00*	>  0x0, PAGE 0
 
-	.text		>  RTU_IMEM, PAGE 0
-	.stack		>  RTU1_DMEM_1, PAGE 1
-	.bss		>  RTU1_DMEM_1, PAGE 1
-	.cio		>  RTU1_DMEM_1, PAGE 1
-	.data		>  RTU1_DMEM_1, PAGE 1
-	.switch		>  RTU1_DMEM_1, PAGE 1
-	.sysmem		>  RTU1_DMEM_1, PAGE 1
-	.cinit		>  RTU1_DMEM_1, PAGE 1
-	.rodata		>  RTU1_DMEM_1, PAGE 1
-	.rofardata	>  RTU1_DMEM_1, PAGE 1
-	.farbss		>  RTU1_DMEM_1, PAGE 1
-	.fardata	>  RTU1_DMEM_1, PAGE 1
+	.text		>  PRU_IMEM, PAGE 0
+	.stack		>  PRU0_DMEM_0, PAGE 1
+	.bss		>  PRU0_DMEM_0, PAGE 1
+	.cio		>  PRU0_DMEM_0, PAGE 1
+	.data		>  PRU0_DMEM_0, PAGE 1
+	.switch		>  PRU0_DMEM_0, PAGE 1
+	.sysmem		>  PRU0_DMEM_0, PAGE 1
+	.cinit		>  PRU0_DMEM_0, PAGE 1
+	.rodata		>  PRU0_DMEM_0, PAGE 1
+	.rofardata	>  PRU0_DMEM_0, PAGE 1
+	.farbss		>  PRU0_DMEM_0, PAGE 1
+	.fardata	>  PRU0_DMEM_0, PAGE 1
 
 	/* Ensure resource_table section is aligned on 8-byte address for
 	   ARMv8 (64-bit) kernel */
-	.resource_table : ALIGN (8) >  RTU1_DMEM_1, PAGE 1
+	.resource_table : ALIGN (8) >  PRU0_DMEM_0, PAGE 1
+
+	.pru_irq_map (COPY) :
+	{
+		*(.pru_irq_map)
+	}
 }
