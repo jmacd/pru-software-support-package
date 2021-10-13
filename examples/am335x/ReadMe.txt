@@ -21,7 +21,6 @@ WHAT EXAMPLES ARE INCLUDED?
 	---------
 	PRU_access_const_table
 	PRU_ADC_onChip
-	PRU_ARMtoPRU_Interrupt
 	PRU_Direct_Connect0
 	PRU_Direct_Connect1
 	PRU_Halt
@@ -30,8 +29,6 @@ WHAT EXAMPLES ARE INCLUDED?
 	PRU_Hardware_UART
 	PRU_IEP
 	PRU_MAC_Multiply_Accum
-	PRU_mem1DTransfer
-	PRU_PRUtoARM_Interrupt
 	PRU_RPMsg_Echo_Interrupt0
 	PRU_RPMsg_Echo_Interrupt1
 
