@@ -10,12 +10,10 @@ lab_5/solution/am335x/PRU_RPMsg_Echo_Interrupt1 \
 lab_5/solution/am437x/PRU_RPMsg_Echo_Interrupt1_1 \
 lab_5/solution/am572x/PRU_RPMsg_Echo_Interrupt1 \
 lab_5/solution/am65x/PRU_RPMsg_Echo_Interrupt1 \
-lab_5/solution/k2g/PRU_RPMsg_Echo_Interrupt1 \
 lab_5/solution/am335x/PRU_Halt \
 lab_5/solution/am437x/PRU_Halt \
 lab_5/solution/am572x/PRU_Halt \
 lab_5/solution/am65x/PRU_Halt \
-lab_5/solution/k2g/PRU_Halt \
 lab_6/solution/PRU_RPMsg_LED0 \
 
 all: $(SUBDIRS)
