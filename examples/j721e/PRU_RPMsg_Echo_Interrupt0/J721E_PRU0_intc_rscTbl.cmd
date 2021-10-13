@@ -1,8 +1,8 @@
 /*
- * J721E_RTU0.cmd
+ * J721E_PRU0.cmd
  *
  * Example Linker command file for linking programs built with the C compiler
- * on J721E RTU0 cores
+ * on J721E PRU0 cores
  *
  * Copyright (C) 2019-2021 Texas Instruments Incorporated - https://www.ti.com/
  *
@@ -41,8 +41,8 @@
 MEMORY
 {
       PAGE 0:
-	/* 8 KB RTU Instruction RAM */
-	RTU_IMEM	: org = 0x00000000 len = 0x00002000
+	/* 12 KB PRU Instruction RAM */
+	PRU_IMEM	: org = 0x00000000 len = 0x00003000
 
       PAGE 1:
 	/* Data RAMs */
@@ -83,8 +83,8 @@ MEMORY
 	PRU_UART	: org = 0x00028000 len = 0x00000038	CREGISTER=7
 	PRU_IEP0_0x100	: org = 0x0002E100 len = 0x0000021C	CREGISTER=8
 	MII_G_RT	: org = 0x00033000 len = 0x00000C18	CREGISTER=9
-	TM_CFG_RTU0	: org = 0x0002A100 len = 0x0000004C	CREGISTER=10
-	RTU0_CTRL	: org = 0x00023000 len = 0x00000088	CREGISTER=11
+	TM_CFG_PRU0	: org = 0x0002A000 len = 0x0000004C	CREGISTER=10
+	PRU0_CTRL	: org = 0x00022000 len = 0x00000088	CREGISTER=11
 	/* FIXME: PA_STATS_QRAM and CRAM assigned random sizes of 0x100 */
 	PA_STATS_QRAM	: org = 0x00027000 len = 0x00000100	CREGISTER=12
 	PA_STATS_CRAM	: org = 0x0002C000 len = 0x00000100	CREGISTER=13
@@ -111,24 +111,29 @@ MEMORY
 
 /* Specify the sections allocation into memory */
 SECTIONS {
-	/* Forces _c_int00 to the start of RTU IRAM. Not necessary when loading
+	/* Forces _c_int00 to the start of PRU IRAM. Not necessary when loading
 	   an ELF file, but useful when loading a binary */
 	.text:_c_int00*	>  0x0, PAGE 0
 
-	.text		>  RTU_IMEM, PAGE 0
-	.stack		>  RTU0_DMEM_0, PAGE 1
-	.bss		>  RTU0_DMEM_0, PAGE 1
-	.cio		>  RTU0_DMEM_0, PAGE 1
-	.data		>  RTU0_DMEM_0, PAGE 1
-	.switch		>  RTU0_DMEM_0, PAGE 1
-	.sysmem		>  RTU0_DMEM_0, PAGE 1
-	.cinit		>  RTU0_DMEM_0, PAGE 1
-	.rodata		>  RTU0_DMEM_0, PAGE 1
-	.rofardata	>  RTU0_DMEM_0, PAGE 1
-	.farbss		>  RTU0_DMEM_0, PAGE 1
-	.fardata	>  RTU0_DMEM_0, PAGE 1
+	.text		>  PRU_IMEM, PAGE 0
+	.stack		>  PRU0_DMEM_0, PAGE 1
+	.bss		>  PRU0_DMEM_0, PAGE 1
+	.cio		>  PRU0_DMEM_0, PAGE 1
+	.data		>  PRU0_DMEM_0, PAGE 1
+	.switch		>  PRU0_DMEM_0, PAGE 1
+	.sysmem		>  PRU0_DMEM_0, PAGE 1
+	.cinit		>  PRU0_DMEM_0, PAGE 1
+	.rodata		>  PRU0_DMEM_0, PAGE 1
+	.rofardata	>  PRU0_DMEM_0, PAGE 1
+	.farbss		>  PRU0_DMEM_0, PAGE 1
+	.fardata	>  PRU0_DMEM_0, PAGE 1
 
 	/* Ensure resource_table section is aligned on 8-byte address for
 	   ARMv8 (64-bit) kernel */
-	.resource_table : ALIGN (8) >  RTU0_DMEM_0, PAGE 1
+	.resource_table : ALIGN (8) >  PRU0_DMEM_0, PAGE 1
+
+	.pru_irq_map (COPY) :
+	{
+		*(.pru_irq_map)
+	}
 }
