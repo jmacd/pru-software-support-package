@@ -1,6 +1,6 @@
 /****************************************************************************/
 /*  K2G_PRU.cmd								    */
-/*  Copyright (c) 2016-2018  Texas Instruments Incorporated                */
+/*  Copyright (c) 2016-2021  Texas Instruments Incorporated                 */
 /*                                                                          */
 /*    Description: This file is a linker command file that can be used for  */
 /*                 linking PRU programs built with the C compiler and       */
@@ -77,5 +77,8 @@ SECTIONS {
 	.farbss		>  PRU_DMEM_0_1, PAGE 1
 	.fardata	>  PRU_DMEM_0_1, PAGE 1
 
-	.resource_table > PRU_DMEM_0_1, PAGE 1
+	.pru_irq_map (COPY) :
+	{
+		*(.pru_irq_map)
+	}
 }
