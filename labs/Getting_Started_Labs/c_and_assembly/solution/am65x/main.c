@@ -35,9 +35,9 @@
 
 /* TODO: define c */
 /* a, b, and c are stored in a defined location in PRU memory */
-#define a  (*((volatile unsigned int *)0x100))
-#define b  (*((volatile unsigned int *)0x104))
-#define c  (*((volatile unsigned int *)0x108))
+#define a  (*((volatile unsigned int *)0x110))
+#define b  (*((volatile unsigned int *)0x114))
+#define c  (*((volatile unsigned int *)0x118))
 
 /* Declaration of the external assembly function */
 uint32_t assm_add(uint32_t arg1, uint32_t arg2);

@@ -36,9 +36,13 @@
 
 ; TODO: define y and z
 x				.set	1
+y				.set	2
+z				.set    0
 
 ; TODO: define y_register and z_register
 x_register			.set	r20
+y_register			.set	r21
+z_register			.set	r22
 
 ;*****************************************************************************
 ;                                  Main Loop
@@ -51,13 +55,17 @@ x_register			.set	r20
 
 	; TODO: clear y_register and z_register
 	zero		&x_register, 32		; Clear register 20
+	zero		&y_register, 32		; Clear register 21
+	zero		&z_register, 32		; Clear register 22
 
 while_true:
 
 	; TODO: load y value into y_register
 	ldi		x_register, x		; load x value into register r20
+	ldi		y_register, y		; load y value into register r21
 
 	; TODO: add x_register and y_register. Store the result in z_register
+	add		z_register, x_register, y_register
 
 
 	; jump to continue refreshing z_register value

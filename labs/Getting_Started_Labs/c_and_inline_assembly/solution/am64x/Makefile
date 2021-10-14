@@ -46,9 +46,9 @@ endif
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 CURRENT_DIR := $(notdir $(patsubst %/,%,$(dir $(MKFILE_PATH))))
 PROJ_NAME=$(CURRENT_DIR)
-LINKER_COMMAND_FILE=./AM335x_PRU.cmd
+LINKER_COMMAND_FILE=./AM64x_PRU0.cmd
 LIBS= #No libraries in this project. See RPMsg_Echo_Interrupt for example usage
-INCLUDE=--include_path=$(PRU_SSP)/include --include_path=$(PRU_SSP)/include/am335x
+INCLUDE=--include_path=$(PRU_SSP)/include --include_path=$(PRU_SSP)/include/am64x
 STACK_SIZE=0x100
 HEAP_SIZE=0x100
 GEN_DIR=gen

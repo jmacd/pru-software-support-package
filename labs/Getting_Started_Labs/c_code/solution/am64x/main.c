@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (C) 2018-2021 Texas Instruments Incorporated - http://www.ti.com/
  *
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,42 +31,42 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <stdint.h>
+
+/* TODO: define c */
+/* a, b, and c are stored in a defined location in PRU memory */
+#define a  (*((volatile unsigned int *)0x110))
+#define b  (*((volatile unsigned int *)0x114))
+#define c  (*((volatile unsigned int *)0x118))
+
 /*
- *  ======== resource_table_empty.h ========
- *
- *  Define the resource table entries for all PRU cores. This will be
- *  incorporated into corresponding base images, and used by the remoteproc
- *  on the host-side to allocated/reserve resources.  Note the remoteproc
- *  driver requires that all PRU firmware be built with a resource table.
- *
- *  This file contains an empty resource table.  It can be used either as:
- *
- *        1) A template, or
- *        2) As-is if a PRU application does not need to configure PRU_INTC
- *                  or interact with the rpmsg driver
- *
+ * main.c
  */
+void main(void)
+{
+	/* TODO: define y & z */
+	/* The compiler decides where to store x, y, and z */
+	uint32_t x = 1;
+	uint32_t y = 2;
+	uint32_t z = 0;
 
-#ifndef _RSC_TABLE_PRU_H_
-#define _RSC_TABLE_PRU_H_
+	a = 1;
+	b = 2;
 
-#include <stddef.h>
-#include <rsc_types.h>
+	while(1) {
+		/*
+		 * TODO: store the sum of x and y in z
+		 */
+		z = x + y;
 
-struct my_resource_table {
-	struct resource_table base;
+		/*
+		 * TODO: store the sum of the numbers at memory locations a and
+		 * b in memory location c
+		 */
+		c = a + b;
+	}
 
-	uint32_t offset[1]; /* Should match 'num' in actual definition */
-};
-
-#pragma DATA_SECTION(pru_remoteproc_ResourceTable, ".resource_table")
-#pragma RETAIN(pru_remoteproc_ResourceTable)
-struct my_resource_table pru_remoteproc_ResourceTable = {
-	1,	/* we're the first version that implements this */
-	0,	/* number of entries in the table */
-	0, 0,	/* reserved, must be zero */
-	0,	/* offset[0] */
-};
-
-#endif /* _RSC_TABLE_PRU_H_ */
+	/* This program will not reach __halt because of the while loop */
+	__halt();
+}
 
