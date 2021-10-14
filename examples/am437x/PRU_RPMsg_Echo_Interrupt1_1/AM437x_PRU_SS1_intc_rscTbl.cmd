@@ -1,6 +1,6 @@
 /****************************************************************************/
-/*  AM437x_PRU_SS0.cmd                                                      */
-/*  Copyright (c) 2015-2018  Texas Instruments Incorporated                 */
+/*  AM437x_PRU_SS1.cmd                                                      */
+/*  Copyright (c) 2015-2021  Texas Instruments Incorporated                 */
 /*                                                                          */
 /*    Description: This file is a linker command file that can be used for  */
 /*                 linking PRU programs built with the C compiler and       */
@@ -13,14 +13,17 @@
 MEMORY
 {
       PAGE 0:
-	PRU_IMEM		: org = 0x00000000 len = 0x00001000  /* 4kB PRU-ICSS0 Instruction RAM */
+	PRU_IMEM		: org = 0x00000000 len = 0x00003000  /* 12kB PRU-ICSS1 Instruction RAM */
 
       PAGE 1:
 
 	/* RAM */
 
-	PRU_DMEM_0_1	: org = 0x00000000 len = 0x00001000 CREGISTER=24 /* 4kB PRU Data RAM 0_1 */
-	PRU_DMEM_1_0	: org = 0x00002000 len = 0x00001000	CREGISTER=25 /* 4kB PRU Data RAM 1_0 */
+	PRU_DMEM_0_1	: org = 0x00000000 len = 0x00002000 CREGISTER=24 /* 8kB PRU Data RAM 0_1 */
+	PRU_DMEM_1_0	: org = 0x00002000 len = 0x00002000	CREGISTER=25 /* 8kB PRU Data RAM 1_0 */
+
+	  PAGE 2:
+	PRU_SHAREDMEM	: org = 0x00010000 len = 0x00008000 CREGISTER=28 /* 32kB Shared RAM */
 
 	DDR			    : org = 0x80000000 len = 0x00010000	CREGISTER=31
 	L3OCMC			: org = 0x40000000 len = 0x00010000	CREGISTER=30
@@ -80,4 +83,9 @@ SECTIONS {
 	.fardata	>  PRU_DMEM_0_1, PAGE 1
 
 	.resource_table > PRU_DMEM_0_1, PAGE 1
+
+	.pru_irq_map (COPY) :
+	{
+		*(.pru_irq_map)
+	}
 }
