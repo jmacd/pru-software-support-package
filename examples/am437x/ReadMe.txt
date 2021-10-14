@@ -68,12 +68,6 @@ WHAT EXAMPLES ARE INCLUDED?
 		enable future PRU RPMsg development.
 
 
-PATCHES
-
-	The patches directory contains a single patch that can be applied to the
-	Linux source in order to load the PRU firmwares into PRUSS0 instead of
-	PRUSS1 on the AM437x device.
-
 ADDITIONAL RESOURCES
 
 	For more information about the PRU, visit:
