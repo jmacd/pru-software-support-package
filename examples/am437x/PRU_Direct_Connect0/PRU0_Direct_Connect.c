@@ -64,7 +64,7 @@ void main(void)
 	CT_INTC.SECR1 = 0xFFFFFFFF;
 
 	/* Load the buffer with default values to transfer */
-	dmemBuf.reg5 = 0xDEADBEEF;
+	dmemBuf.reg5 = 0xABABABAB;
 	dmemBuf.reg6 = 0xAAAAAAAA;
 	dmemBuf.reg7 = 0x12345678;
 	dmemBuf.reg8 = 0xBBBBBBBB;

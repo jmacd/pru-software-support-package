@@ -99,10 +99,10 @@ Read at address  0x30002100: 0x00000000
 // load PRU0 firmware
 # echo 'start' > /sys/class/remoteproc/remoteproc4/state
 # devmem2 0x30000100
-Read at address  0x30000100: 0xDEADBEEF
+Read at address  0x30000100: 0xABABABAB
 # devmem2 0x30002100
 Read at address  0x30002100: 0x00000000
 // load PRU1 firmware
 # echo 'start' > /sys/class/remoteproc/remoteproc7/state
 # devmem2 0x30002100
-Read at address  0x30002100: 0xDEADBEEF
+Read at address  0x30002100: 0xABABABAB
