@@ -89,10 +89,6 @@ MEMORY
 
 	PA_STATS_QRAM	: org = 0x00027000 len = 0x00001000	CREGISTER=12
 	PA_STATS_CRAM	: org = 0x0002C000 len = 0x00001000	CREGISTER=13
-	/* TODO: AM64x TRM has conflicting info. Is ICSSG_PROTECT at 0x24800 or
-	 * 0x24C00? If ICSSG_PROTECT is at 0x24C00, does CREGISTER entry 14
-	 * actually point to 0x24C00, or is it truly pointing at 0x24800? */
-	ICSSG_PROTECT	: org = 0x00024800 len = 0x00000008	CREGISTER=14
 	MII_MDIO	: org = 0x00032400 len = 0x00000088	CREGISTER=21
 	PRU_RTU_RAT1	: org = 0x00009000 len = 0x00000854	CREGISTER=22
 	PRU_IEP0	: org = 0x0002E000 len = 0x00000100	CREGISTER=26
@@ -100,6 +96,7 @@ MEMORY
 
 	/* External Regions */
 	/* Random length 0x1000 assigned to the below regions */
+	RSVD14		: org = 0x00024800 len = 0x00001000	CREGISTER=14
 	RSVD15		: org = 0x60000000 len = 0x00001000	CREGISTER=15
 	RSVD16		: org = 0x70000000 len = 0x00001000	CREGISTER=16
 	RSVD17		: org = 0x80000000 len = 0x00001000	CREGISTER=17
