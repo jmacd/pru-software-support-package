@@ -14,6 +14,26 @@ $ git log --oneline
 copy the git hash of the commit you are interested in
 $ git show gitHash
 
+v6.1.0
+------
+Released 2022-04-07
+
+This release adds AM62x support to the PSSP. AM62x PRU is compatible with Linux
+kernel 5.10 and later.
+ * include/am62x (header files)
+ * examples/am62x (Halt, Direct_Connect, MAC_Multiply_Accum, RPMsg)
+ * labs/Getting_Started_Labs & labs/Hands_on_Labs/lab_5
+
+Other changes:
+ * Remove the "Protect" section from PRU Constant Table entries. Affected the
+     linker command files for ICSSG devices (AM64x, AM65x, J7). Also applies to
+     ICSSM v2.3 devices (which start with AM62x & AM263x).
+ * If the "Protect" PRU Constant Table entry is reserved, then the reserved
+     section must be less than 0x200. Reduce the arbitrary reserved section
+     lengths in the linker command files for AM64x, AM65x, J7.
+ * examples/j7: in TX_PRU linker command files, change PRU0/1_CTRL to
+     TX_PRU0/1_CTRL. TI does NOT currently support PRU development on J7.
+
 
 v6.0.1
 ------
