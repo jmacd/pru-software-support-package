@@ -95,7 +95,7 @@ MEMORY
 
 	/* External Regions */
 	/* Random length 0x1000 assigned to the below regions */
-	RSVD14		: org = 0x00024800 len = 0x00001000	CREGISTER=14
+	RSVD14		: org = 0x00024800 len = 0x00000100	CREGISTER=14
 	RSVD15		: org = 0x60000000 len = 0x00001000	CREGISTER=15
 	RSVD16		: org = 0x70000000 len = 0x00001000	CREGISTER=16
 	RSVD17		: org = 0x80000000 len = 0x00001000	CREGISTER=17

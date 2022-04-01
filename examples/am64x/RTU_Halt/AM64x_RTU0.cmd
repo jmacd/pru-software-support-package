@@ -4,7 +4,7 @@
  * Example Linker command file for linking programs built with the C compiler
  * on AM64x RTU0 cores
  *
- * Copyright (C) 2021 Texas Instruments Incorporated - https://www.ti.com/
+ * Copyright (C) 2021-2022 Texas Instruments Incorporated - https://www.ti.com/
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -93,15 +93,15 @@ MEMORY
 	MII_RT		: org = 0x00032000 len = 0x00000070	CREGISTER=27
 
 	/* External Regions */
-	/* Random length 0x1000 assigned to the below regions */
-	RSVD14		: org = 0x00024800 len = 0x00001000	CREGISTER=14
-	RSVD15		: org = 0x60000000 len = 0x00001000	CREGISTER=15
-	RSVD16		: org = 0x70000000 len = 0x00001000	CREGISTER=16
-	RSVD17		: org = 0x80000000 len = 0x00001000	CREGISTER=17
-	RSVD18		: org = 0x90000000 len = 0x00001000	CREGISTER=18
-	RSVD19		: org = 0xA0000000 len = 0x00001000	CREGISTER=19
-	RSVD20		: org = 0xB0000000 len = 0x00001000	CREGISTER=20
-	RSVD23		: org = 0xC0000000 len = 0x00001000	CREGISTER=23
+	/* Random length 0x100 assigned to the below regions */
+	RSVD14		: org = 0x00024800 len = 0x00000100	CREGISTER=14
+	RSVD15		: org = 0x60000000 len = 0x00000100	CREGISTER=15
+	RSVD16		: org = 0x70000000 len = 0x00000100	CREGISTER=16
+	RSVD17		: org = 0x80000000 len = 0x00000100	CREGISTER=17
+	RSVD18		: org = 0x90000000 len = 0x00000100	CREGISTER=18
+	RSVD19		: org = 0xA0000000 len = 0x00000100	CREGISTER=19
+	RSVD20		: org = 0xB0000000 len = 0x00000100	CREGISTER=20
+	RSVD23		: org = 0xC0000000 len = 0x00000100	CREGISTER=23
 	/* Random length 0x10000 (max len value) assigned to programmable C29-31*/
 	RSVD29		: org = 0xD0000000 len = 0x00010000	CREGISTER=29
 	RSVD30		: org = 0xE0000000 len = 0x00010000	CREGISTER=30
