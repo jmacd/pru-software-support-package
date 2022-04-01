@@ -4,7 +4,7 @@
  * Example Linker command file for linking programs built with the C compiler
  * on J721E TX_PRU0 cores
  *
- * Copyright (C) 2019-2021 Texas Instruments Incorporated - https://www.ti.com/
+ * Copyright (C) 2019-2022 Texas Instruments Incorporated - https://www.ti.com/
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -84,7 +84,7 @@ MEMORY
 	PRU_IEP0_0x100	: org = 0x0002E100 len = 0x0000021C	CREGISTER=8
 	MII_G_RT	: org = 0x00033000 len = 0x00000C18	CREGISTER=9
 	TM_CFG_PRU0	: org = 0x0002A000 len = 0x0000004C	CREGISTER=10
-	PRU0_CTRL	: org = 0x00022000 len = 0x00000088	CREGISTER=11
+	TX_PRU0_CTRL	: org = 0x00025000 len = 0x00000088	CREGISTER=11
 	/* FIXME: PA_STATS_QRAM and CRAM assigned random sizes of 0x100 */
 	PA_STATS_QRAM	: org = 0x00027000 len = 0x00000100	CREGISTER=12
 	PA_STATS_CRAM	: org = 0x0002C000 len = 0x00000100	CREGISTER=13
