@@ -54,9 +54,9 @@ z_register			.set	r22
 ||main||:
 
 	; TODO: clear y_register and z_register
-	zero		&x_register, 32		; Clear register 20
-	zero		&y_register, 32		; Clear register 21
-	zero		&z_register, 32		; Clear register 22
+	zero		&x_register, 4		; Clear register 20
+	zero		&y_register, 4		; Clear register 21
+	zero		&z_register, 4		; Clear register 22
 
 while_true:
 

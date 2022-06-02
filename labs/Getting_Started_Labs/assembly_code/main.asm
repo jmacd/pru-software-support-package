@@ -50,7 +50,7 @@ x_register			.set	r20
 ||main||:
 
 	; TODO: clear y_register and z_register
-	zero		&x_register, 32		; Clear register 20
+	zero		&x_register, 4		; Clear register 20
 
 while_true:
 
