@@ -57,11 +57,6 @@ WHAT EXAMPLES ARE INCLUDED?
 		inter-processor communication method for every design, but it is
 		useful for initial debugging and demonstrations.
 
-		NOTE! As of AM64x/AM65x TI Processor Linux SDK 8.0, Linux PRU
-		RPMsg is NOT supported. The RPMsg projects have been ported to
-		be compatible with Linux 5.10 RemoteProc driver in order to
-		enable future PRU RPMsg development.
-
 AM65x SR1.0 vs SR2.0 USAGE
 
 	The AM65x SoCs uses different revisions of the ICSSG IP between AM65x
@@ -86,10 +81,6 @@ ADDITIONAL RESOURCES
 
 	For more information about the PRU, visit:
 
-	PRU-ICSS Wiki            - http://processors.wiki.ti.com/index.php/PRU-ICSS
-	PRU-ICSS/PRU_ICSSG docs	 - http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components_PRU-ICSS_PRU_ICSSG.html
-	Linux SDK Support	 - http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/index.html
-	PRU Training Slides      - http://www.ti.com/sitarabootcamp
-	PRU Evaluation Hardware  - http://www.ti.com/tool/PRUCAPE
+	PRU-ICSS/PRU_ICSSG docs	 - https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components_PRU_Subsystem.html
 	AM65x TRM                - https://www.ti.com/lit/pdf/spruid7
 	Support                  - http://e2e.ti.com

@@ -43,15 +43,15 @@ DESCRIPTION
    visit:
 
         http://www.ti.com/tool/PRUCAPE
-
+        https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components/PRU-ICSS-Hardware.html
 
 
 ADDITIONAL RESOURCES
 
    For more information about the PRU, visit:
 
-	PRU-ICSS Wiki            - http://processors.wiki.ti.com/index.php/PRU-ICSS
-	PRU Training Slides      - http://www.ti.com/sitarabootcamp
+	PRU-ICSS/PRU_ICSSG docs  - https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components_PRU_Subsystem.html
 	PRU Evaluation Hardware  - http://www.ti.com/tool/PRUCAPE
+                                 - https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components/PRU-ICSS-Hardware.html
         Support                  - http://e2e.ti.com
 

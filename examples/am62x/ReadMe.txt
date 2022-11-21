@@ -45,10 +45,6 @@ ADDITIONAL RESOURCES
 
 	For more information about the PRU, visit:
 
-	PRU-ICSS Wiki            - http://processors.wiki.ti.com/index.php/PRU-ICSS
-	PRU-ICSS/PRU_ICSSG docs	 - http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components_PRU-ICSS_PRU_ICSSG.html
-	Linux SDK Support	 - http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/index.html
-	PRU Training Slides      - http://www.ti.com/sitarabootcamp
-	PRU Evaluation Hardware  - http://www.ti.com/tool/PRUCAPE
-	AM62x TRM                - Link TBD
+	PRU-ICSS/PRU_ICSSG docs	 - https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components_PRU_Subsystem.html
+	AM62x TRM                - https://www.ti.com/lit/spruiv7
 	Support                  - http://e2e.ti.com

@@ -10,7 +10,7 @@ DESCRIPTION
 
    For more details about these header files, visit:
 
-       http://processors.wiki.ti.com/index.php/PRU-ICSS_Header_Files
+       https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/common/PRU-ICSS/Header_Files.html
 
 
 
@@ -18,8 +18,6 @@ ADDITIONAL RESOURCES
 
    For more information about the PRU, visit:
 
-	PRU-ICSS Wiki            - http://processors.wiki.ti.com/index.php/PRU-ICSS
-	PRU Training Slides      - http://www.ti.com/sitarabootcamp
-	PRU Evaluation Hardware  - http://www.ti.com/tool/PRUCAPE
+	PRU-ICSS/PRU_ICSSG docs  - https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components_PRU_Subsystem.html
         Support                  - http://e2e.ti.com
 

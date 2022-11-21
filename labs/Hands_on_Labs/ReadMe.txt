@@ -10,7 +10,7 @@ DESCRIPTION
    tutorial of the PRU, C-compiler, and Linux driver. The step-by-step lab
    instructions are available at:
 
-       http://processors.wiki.ti.com/index.php/PRU_Training:_Hands-on_Labs
+      software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/common/PRU-ICSS/PRU-Hands-on-Labs.html
 
    Lab solutions are provided in each lab directory.
 
@@ -32,7 +32,5 @@ ADDITIONAL RESOURCES
 
   For more information about the PRU, visit:
 
-	PRU-ICSS Wiki            - http://processors.wiki.ti.com/index.php/PRU-ICSS
-	PRU Training Slides      - http://www.ti.com/sitarabootcamp
-	PRU Evaluation Hardware  - http://www.ti.com/tool/PRUCAPE
+	PRU-ICSS/PRU_ICSSG docs  - https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/linux/Foundational_Components_PRU_Subsystem.html
 	Support                  - http://e2e.ti.com

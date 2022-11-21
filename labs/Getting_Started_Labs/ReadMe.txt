@@ -6,7 +6,7 @@ Getting Started Labs
 
 For documentation on the Getting Started Labs, please reference
 the Processor SDK Linux documentation, section "PRU-ICSS / PRU_ICSSG"
-http://software-dl.ti.com/processor-sdk-linux/esd/docs/latest/linux/Foundational_Components_PRU-ICSS_PRU_ICSSG.html
+https://software-dl.ti.com/processor-sdk-linux/esd/AM64X/latest/exports/docs/common/PRU-ICSS/PRU-Getting-Started-Labs.html
 
 The PRU Getting Started Labs apply to the PRU on AM335x, AM437x, AM57xx, AM62x,
 AM64x, and AM65xx.
