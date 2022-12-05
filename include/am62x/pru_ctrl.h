@@ -141,6 +141,6 @@ typedef struct {
 
 } ctrl;
 
-volatile __far ctrl CT_CTRL __attribute__((cregister("PRU_CTRL", near), peripheral);
+volatile __far ctrl CT_CTRL __attribute__((cregister("PRU_CTRL", near), peripheral));
 
 #endif /* _PRU_CTRL_H_ */

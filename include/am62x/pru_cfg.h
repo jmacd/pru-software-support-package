@@ -1371,7 +1371,7 @@ typedef struct {
 
 } cfg_0x100;
 
-volatile __far cfg CT_CFG __attribute__((cregister("PRU_CFG", near), peripheral);
-volatile __far cfg_0x100 CT_CFG_0x100 __attribute__((cregister("PRU_CFG_0x100", near), peripheral);
+volatile __far cfg CT_CFG __attribute__((cregister("PRU_CFG", near), peripheral));
+volatile __far cfg_0x100 CT_CFG_0x100 __attribute__((cregister("PRU_CFG_0x100", near), peripheral));
 
 #endif /* _PRU_CFG_H_ */

@@ -198,6 +198,6 @@ typedef struct {
 
 } ecap;
 
-volatile __far ecap CT_ECAP __attribute__((cregister("PRU_ECAP", near), peripheral);
+volatile __far ecap CT_ECAP __attribute__((cregister("PRU_ECAP", near), peripheral));
 
 #endif /* _PRU_ECAP_H_ */
