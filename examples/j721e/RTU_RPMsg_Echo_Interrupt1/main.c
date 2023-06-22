@@ -60,9 +60,6 @@ volatile register uint32_t __R31;
 #error "CHAN_PORT not defined, must be passed using the compiler CFLAGS"
 #endif
 
-#define XSTR(x)				#x
-#define CHAN_DESC(x)			"Channel "XSTR(x)
-
 /*
  * Used to make sure the Linux drivers are ready for RPMsg communication
  * Found at linux-x.y.z/include/uapi/linux/virtio_config.h
@@ -91,7 +88,7 @@ void main(void)
 	pru_rpmsg_init(&transport, &resourceTable.rpmsg_vring0, &resourceTable.rpmsg_vring1, TO_ARM_HOST, FROM_ARM_HOST);
 
 	/* Create the RPMsg channel between the PRU and ARM user space using the transport structure. */
-	while (pru_rpmsg_channel(RPMSG_NS_CREATE, &transport, CHAN_NAME, CHAN_DESC(CHAN_PORT), CHAN_PORT) != PRU_RPMSG_SUCCESS);
+	while (pru_rpmsg_channel(RPMSG_NS_CREATE, &transport, CHAN_NAME, CHAN_PORT) != PRU_RPMSG_SUCCESS);
 	while (1) {
 		/* Check bit 31 of register R31 to see if the ARM has kicked us */
 		if (__R31 & HOST_INT) {

@@ -54,7 +54,6 @@ struct pru_rpmsg_hdr {
 
 struct pru_rpmsg_ns_msg {
 	char		name[RPMSG_NAME_SIZE];
-	char		desc[RPMSG_NAME_SIZE];
 	uint32_t	addr;
 	uint32_t	flags;
 };
@@ -167,7 +166,6 @@ int16_t pru_rpmsg_channel(
     enum pru_rpmsg_ns_flags	flags,
     struct pru_rpmsg_transport	*transport,
     char			*name,
-    char			*desc,
     int32_t			port
 )
 {
@@ -176,7 +174,6 @@ int16_t pru_rpmsg_channel(
 
 	for (i = 0; i < RPMSG_NAME_SIZE; i++) {
 		ns_msg.name[i] = name[i];
-		ns_msg.desc[i] = desc[i];
 	}
 	ns_msg.addr = port;
 	ns_msg.flags = flags;

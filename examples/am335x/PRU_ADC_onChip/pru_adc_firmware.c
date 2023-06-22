@@ -120,7 +120,7 @@ void main(void)
 	 * the transport structure. 
 	 */
 	while (pru_rpmsg_channel(RPMSG_NS_CREATE, &transport, CHAN_NAME,
-			CHAN_DESC, CHAN_PORT) != PRU_RPMSG_SUCCESS) {
+			CHAN_PORT) != PRU_RPMSG_SUCCESS) {
 		/* Optional: implement timeout logic */
 	};
 
