@@ -6,7 +6,7 @@ Programmable Real-time Unit (PRU) Software Support Package
 
 DESCRIPTION
 
-	This directory provides basic "building block" examples for the AM24x
+	This directory provides basic "building block" examples for the AM243x
 	PRU_ICSSG cores. The concepts shown in these examples can be combined to
 	create PRU_ICSSG applications.
 
