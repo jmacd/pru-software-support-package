@@ -14,6 +14,20 @@ $ git log --oneline
 copy the git hash of the commit you are interested in
 $ git show gitHash
 
+v6.2.0
+------
+Released 2023-06-29
+
+This release supports Linux kernel 6.1. The RPMsg library in previous versions
+of the PSSP will not work with the PRU RPMsg drivers in Linux kernel 6.1.
+
+Other changes:
+ * Bug fixes:
+     - Getting Started Labs, fix "zero" command clearing too many bytes
+     - Include files, add a missing parentheses to pru_cfg, pru_ctrl, pru_ecap
+ * Update ReadMe files to point to the latest URLs
+ * Create the folder structure for AM243x projects
+
 v6.1.0
 ------
 Released 2022-04-07

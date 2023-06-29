@@ -1,4 +1,4 @@
-Programmable Real-time Unit (PRU) Software Support Package v6.1.0
+Programmable Real-time Unit (PRU) Software Support Package v6.2.0
 
 
 DESCRIPTION
@@ -27,11 +27,11 @@ WHAT's INCLUDED?
 
 	DIRECTORY	CONTENTS
 	---------	--------
-	examples 	Basic PRU examples
-	include 	PRU firmware header files
-	labs 		Source code for step-by-step labs
-	lib 		PRU library files and library source files
-	pru_cape 	Demo software for the BeagleBone PRU Cape
+	examples	Basic PRU examples
+	include		PRU firmware header files
+	labs		Source code for step-by-step labs
+	lib		PRU library files and library source files
+	pru_cape	Demo software for the BeagleBone PRU Cape
 
 
 
