@@ -4,5 +4,5 @@ cc_library(
     name = "include",
     hdrs = glob(["*.h"]),
     srcs = [],
-    copts = [],
+    copts = ["-Iinclude"],
 )
