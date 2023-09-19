@@ -1,7 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
-    name = "rpms_lib",
+    name = "rpmsg_lib",
     srcs = glob(["*.c"]),
     deps = ["//include"],
 )

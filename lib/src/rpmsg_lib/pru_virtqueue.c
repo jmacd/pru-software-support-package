@@ -39,7 +39,7 @@
  *  Notes	:
  *  - Implementaion of the interface described in "pru_virtqueue.h"
  */
-#include <pru_virtqueue.h>
+#include <include/pru_virtqueue.h>
 
 volatile register uint32_t __R31;
 
