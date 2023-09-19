@@ -59,8 +59,8 @@
 #ifndef _PRU_RPMSG_H_
 #define _PRU_RPMSG_H_
 
-#include <pru_virtqueue.h>
-#include <pru_virtio_ring.h>
+#include <include/pru_virtqueue.h>
+#include <include/pru_virtio_ring.h>
 
 /* Return value indicating no kick was sent */
 #define PRU_RPMSG_NO_KICK			1

@@ -60,8 +60,8 @@
 #ifndef _PRU_VIRTQUEUE_H_
 #define _PRU_VIRTQUEUE_H_
 
-#include <rsc_types.h>
-#include <pru_virtio_ring.h>
+#include <include/rsc_types.h>
+#include <include/pru_virtio_ring.h>
 
 /* Return value indicating no kick was sent */
 #define PRU_VIRTQUEUE_NO_KICK			1
